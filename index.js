@@ -1,10 +1,9 @@
-"use strict";
-const input1 = document.getElementById('input1');
-const input2 = document.getElementById('input2');
-const button = document.getElementById('submit-btn');
-const resultDiv = document.getElementsByClassName('result');
-const addNumbers = (a, b) => a + b;
-const validateNumbers = (a, b) => {
+var input1 = document.getElementById('input1');
+var input2 = document.getElementById('input2');
+var button = document.getElementById('submit-btn');
+var resultDiv = document.getElementsByClassName('result');
+var addNumbers = function (a, b) { return a + b; };
+var validateNumbers = function (a, b) {
     if (a === 0 || b === 0) {
         return 'Number Cant be Zero';
     }
@@ -16,10 +15,10 @@ const validateNumbers = (a, b) => {
     }
     return 'correct';
 };
-button.addEventListener('click', () => {
+button.addEventListener('click', function () {
     if (validateNumbers(Number(input1.value), Number(input2.value)) === 'correct') {
-        console.log(`${input1.value} + ${input2.value} = ${addNumbers(Number(input1.value), Number(input2.value))}`);
-        resultDiv[0].innerHTML += `<p>${input1.value} + ${input2.value} = ${addNumbers(Number(input1.value), Number(input2.value))}</p>`;
+        console.log("".concat(input1.value, " + ").concat(input2.value, " = ").concat(addNumbers(Number(input1.value), Number(input2.value))));
+        resultDiv[0].innerHTML += "<p>".concat(input1.value, " + ").concat(input2.value, " = ").concat(addNumbers(Number(input1.value), Number(input2.value)), "</p>");
         return;
     }
     alert(validateNumbers(Number(input1.value), Number(input2.value)));
